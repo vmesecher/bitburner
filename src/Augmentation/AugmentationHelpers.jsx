@@ -2005,6 +2005,51 @@ function initAugmentations() {
         resetAugmentation(BladesSimulacrum);
     }
 
+    // Special Bladeburner Augmentations
+    const ChurchOfTheMachineGodFactionName = "Church of the Machine God";
+    if (factionExists(ChurchOfTheMachineGodFactionName)) {
+        const StaneksGift = new Augmentation({
+            name:AugmentationNames.StaneksGift, repCost: 500, moneyCost: 30e9,
+            info:'Allison "Mother" Stanek imparts you with her gift. An ' +
+                 'experimental Augmentation implanted at the base of the neck. ' +
+                 'It allows you to overclock your entire system by carefully ' +
+                 'changing the configuration.',
+            isSpecial: true,
+        });
+        StaneksGift.addToFactions([ChurchOfTheMachineGodFactionName]);
+        resetAugmentation(StaneksGift);
+
+        const StaneksGiftNeckExpansion = new Augmentation({
+            name:AugmentationNames.StaneksGiftNeckExpansion, repCost: 500, moneyCost: 30e9,
+            info:'Expands Stanek\'s Gift. Covering a large portion of the neck.<br><br>' +
+                 'This Augmentation increases Stanek\'s Gift Fragment board size.',
+            prereqs:[AugmentationNames.StaneksGift],
+            isSpecial: true,
+        });
+        StaneksGiftNeckExpansion.addToFactions([ChurchOfTheMachineGodFactionName]);
+        resetAugmentation(StaneksGiftNeckExpansion);
+
+        const StaneksGiftVertabraeExpansion = new Augmentation({
+            name:AugmentationNames.StaneksGiftVertabraeExpansion, repCost: 500, moneyCost: 30e9,
+            info:'Further expand Stanek\'s gift to your dorsal vertebrae.<br><br>' +
+                 'This Augmentation increases Stanek\'s Gift Fragment board size.',
+            prereqs:[AugmentationNames.StaneksGiftNeckExpansion],
+            isSpecial: true,
+        });
+        StaneksGiftVertabraeExpansion.addToFactions([ChurchOfTheMachineGodFactionName]);
+        resetAugmentation(StaneksGiftVertabraeExpansion);
+
+        const StaneksGiftCranialExpansion = new Augmentation({
+            name:AugmentationNames.StaneksGiftCranialExpansion, repCost: 500, moneyCost: 30e9,
+            info:'Finalize Stanek\'s gift expansion. Digging directly into your skull.<br><br>' +
+                 'This Augmentation increases Stanek\'s Gift Fragment board size.',
+            prereqs:[AugmentationNames.StaneksGiftVertabraeExpansion],
+            isSpecial: true,
+        });
+        StaneksGiftCranialExpansion.addToFactions([ChurchOfTheMachineGodFactionName]);
+        resetAugmentation(StaneksGiftCranialExpansion);
+    }
+
     // Update costs based on how many have been purchased
     mult = Math.pow(CONSTANTS.MultipleAugMultiplier, Player.queuedAugmentations.length);
     for (var name in Augmentations) {

@@ -420,4 +420,48 @@ export const FactionInfos: IMap<FactionInfo> = {
     false,
     false,
     false),
+
+  "Church of the Machine God": new FactionInfo(
+    "                       *@@@@@@@@@@*         <br>" +
+    "                    &@@@@@@(  /@@@@@@(      <br>" +
+    "                  .@@@@            @@@@     <br>" +
+    "                  @@@@              @@@@    <br>" +
+    "                  @@@@              @@@@    <br>" +
+    "                  @@@@@            %@@@     <br>" +
+    "                   @@@@@          @@@@      <br>" +
+    "                    @@@@@.       @@@@       <br>" +
+    "                     @@@@@@    (@@@#        <br>" +
+    "     .&               @@@@@@  @@@@          <br>" +
+    "  (@@@@&               &@@@@@@@@@           <br>" +
+    ",@@@@@@@@               /@@@@@@/            <br>" +
+    "  @@@@@@@@                @@@@@@            <br>" +
+    "   .@@@@@@@.             @@@@@@@@(          <br>" +
+    "     @@@@@@@&          *@@@@@@@@@@@         <br>" +
+    "      *@@@@@@@        @@@@.  @@@@@@@        <br>" +
+    "        @@@@@@@      @@@@      @@@@@@*      <br>" +
+    "         &@@@@@@%  /@@@&        @@@@@@@     <br>" +
+    "           @@@@@@@@@@@.          /@@@@@@    <br>" +
+    "            @@@@@@@@@              @@@@@@.  <br>" +
+    "             /@@@@@@.               @@@@@@& <br>" +
+    "              @@@@@@@&               (@@@@@@<br>" +
+    "             @@@@@@@@@@                @@@@&<br>" +
+    "            @@@@  @@@@@@                    <br>" +
+    "          &@@@     #@@@@@                   <br>" +
+    "         @@@@        @@@@@                  <br>" +
+    "       .@@@(          @@@@@                 <br>" +
+    "      (@@@(            @@@@@                <br>" +
+    "      @@@@              @@@@                <br>" +
+    "      @@@@              @@@@                <br>" +
+    "      @@@@@            @@@@/                <br>" +
+    "        @@@@@@.   *&@@@@@@                  <br>" +
+    "           @@@@@@@@@@@%                     <br><br>" +
+    "Many cultures predict an end to humanity in the near future, a final" +
+    " Armageddon that will end the world; but we disagree." +
+    "<br><br>Note that for this faction, reputation can " +
+    "only be gained by charging Stanek's gift.",
+    [],
+    false,
+    false,
+    false,
+    false),
 };

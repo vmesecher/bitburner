@@ -72,6 +72,7 @@ import {
     processStockPrices,
     displayStockMarketContent
 } from "./StockMarket/StockMarket";
+import { displayStaneksGiftContent } from "./CotMG/Helper";
 import { Terminal, postNetburnerText } from "./Terminal";
 import { Sleeve } from "./PersonObjects/Sleeve/Sleeve";
 import {
@@ -213,6 +214,7 @@ const Engine = {
         activeScriptsContent:           null,
         hacknetNodesContent:            null,
         createProgramContent:           null,
+        staneksGiftContent:            null,
         factionsContent:                null,
         factionContent:                 null,
         augmentationsContent:           null,
@@ -287,6 +289,14 @@ const Engine = {
         displayCreateProgramContent();
         routing.navigateTo(Page.CreateProgram);
         MainMenuLinks.CreateProgram.classList.add("active");
+    },
+
+    loadStaneksGiftContent: function() {
+        Engine.hideAllContent();
+        Engine.Display.staneksGiftContent.style.display = "block";
+        routing.navigateTo(Page.StaneksGift);
+        MainMenuLinks.StaneksGift.classList.add("active");
+        displayStaneksGiftContent();
     },
 
     loadFactionsContent: function() {
@@ -487,6 +497,7 @@ const Engine = {
 
         clearHacknetNodesUI();
         Engine.Display.createProgramContent.style.display = "none";
+        Engine.Display.staneksGiftContent.style.display = "none";
 
         Engine.Display.factionsContent.style.display = "none";
 
@@ -538,6 +549,7 @@ const Engine = {
         MainMenuLinks.ScriptEditor.classList.remove("active");
         MainMenuLinks.ActiveScripts.classList.remove("active");
         MainMenuLinks.CreateProgram.classList.remove("active");
+        MainMenuLinks.StaneksGift.classList.remove("active");
         MainMenuLinks.Stats.classList.remove("active");
         MainMenuLinks.Factions.classList.remove("active");
         MainMenuLinks.Augmentations.classList.remove("active");
@@ -1248,6 +1260,9 @@ const Engine = {
         Engine.Display.createProgramContent = document.getElementById("create-program-container");
         Engine.Display.createProgramContent.style.display = "none";
 
+        Engine.Display.staneksGiftContent = document.getElementById("staneks-gift-container");
+        Engine.Display.staneksGiftContent.style.display = "none";
+
         Engine.Display.factionsContent = document.getElementById("factions-container");
         Engine.Display.factionsContent.style.display = "none";
 
@@ -1332,6 +1347,11 @@ const Engine = {
 
         MainMenuLinks.CreateProgram.addEventListener("click", function() {
             Engine.loadCreateProgramContent();
+            return false;
+        });
+
+        MainMenuLinks.StaneksGift.addEventListener("click", function() {
+            Engine.loadStaneksGiftContent();
             return false;
         });
 
