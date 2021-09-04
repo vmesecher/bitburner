@@ -2,7 +2,7 @@
 
 .blinking-cursor {
   font-weight: 100;
-  color: #2E3D48;
+  color: #2e3d48;
   -webkit-animation: 1s cursorblink step-end infinite;
   -moz-animation: 1s cursorblink step-end infinite;
   -ms-animation: 1s cursorblink step-end infinite;
@@ -10,8 +10,9 @@
   animation: 1s cursorblink step-end infinite;
 }
 
-@keyframes "cursorblink" {
-  from, to {
+@keyframes cursorblink {
+  from,
+  to {
     color: transparent;
   }
   50% {
@@ -20,7 +21,8 @@
 }
 
 @-moz-keyframes cursorblink {
-  from, to {
+  from,
+  to {
     color: transparent;
   }
   50% {
@@ -28,8 +30,9 @@
   }
 }
 
-@-webkit-keyframes "cursorblink" {
-  from, to {
+@-webkit-keyframes cursorblink {
+  from,
+  to {
     color: transparent;
   }
   50% {
@@ -37,8 +40,9 @@
   }
 }
 
-@-ms-keyframes "cursorblink" {
-  from, to {
+@-ms-keyframes cursorblink {
+  from,
+  to {
     color: transparent;
   }
   50% {
@@ -46,8 +50,9 @@
   }
 }
 
-@-o-keyframes "cursorblink" {
-  from, to {
+@-o-keyframes cursorblink {
+  from,
+  to {
     color: transparent;
   }
   50% {
