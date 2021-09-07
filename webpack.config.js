@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-var path = require("path");
-var webpack = require("webpack");
-var MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isDevServer = (env || {}).devServer === true;
@@ -21,7 +22,7 @@ module.exports = (env, argv) => {
     chunkModules: false,
     chunkOrigins: false,
     colors: true,
-    entrypoints: true,
+    entrypoints: false,
   };
 
   const devServerSettings = {
@@ -97,10 +98,33 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: "[name].css",
       }),
-    ],
+      new ForkTsCheckerWebpackPlugin({
+        typescript: {
+          diagnosticOptions: {
+            semantic: true,
+            syntactic: true,
+          },
+        },
+      }),
+      // In dev mode, use a faster method of create sourcemaps
+      // while keeping lines/columns accurate
+      isDevServer &&
+        new webpack.EvalSourceMapDevToolPlugin({
+          // Exclude vendor files from sourcemaps
+          // This is a huge speed improvement for not much loss
+          exclude: ["vendor"],
+          columns: true,
+          module: true,
+        }),
+      !isDevServer &&
+        new webpack.SourceMapDevToolPlugin({
+          filename: "[file].map",
+          columns: true,
+          module: true,
+        }),
+    ].filter(Boolean),
     target: "web",
     entry: entries,
-    devtool: "source-map",
     output: {
       path: path.resolve(__dirname, "./"),
       filename: "[name].bundle.js",
